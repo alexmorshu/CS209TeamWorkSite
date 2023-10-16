@@ -363,5 +363,5 @@ MigrationBackup/
 FodyWeavers.xsd
 
 
-#Тимчасові файли редакторів
+#temporary IDE files
 .DS_Store
