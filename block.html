@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CyNet</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url("1st-page-main-bg.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+      background-attachment: fixed;
+    }
+    .layout__header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 999;
+    }
+    
+
+    .header__top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      background-color: #fff;
+    }
+
+    .logo {
+      border-right: 1px solid transparent;
+      padding-right: 10px;
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+    }
+
+    .menu__search {
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    .menu__contacts-button {
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+      background-color: transparent;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      background-image: url("https://s3-alpha-sig.figma.com/img/4ac4/0b8e/0f2b4597653a8430294d076a500e3326?Expires=1698019200&Signature=lyFMQQ~XKah1HuXlj~ZuCe6y57YKNMVr-ryqOtlWXZzpVdKBeWIT0rDa~YU~9pSletukLLoRf-8FR4xZV8gxDqQHGM9tEjpe0kLEOx6f5zMfzCevAIEu8KCiA3GuajczbronuUhP6vMmjaUlwj2MGNcHFsmIdl~~DMuogVnCDCMKBsj37mCsHDf-m6uCXgQq6Po-Yq5A-1t~B45hp07I0ieRh~Wo9d38BoRExl8yxzyukIBQuPZNxm7zQCgds9r08TGyEbnfs0T2-51upKzHfiI3pYn9Uu2wBzx77VryNPATIyaYzDrNFUKmNFUwsQMLkkPEJqEhe7ID9w2U1hhHgQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+    .menu__button {
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+      background-color: transparent;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      background-image: url("https://s3-alpha-sig.figma.com/img/d266/b368/de9be0aca649f1abfc6baf181d182c89?Expires=1698019200&Signature=f5VqMtTOp9kqEqDopQwypvegRlyCd2IXcbkpunGTA3OHHUrnk3hJduQbNJO6FCMBi5DUMS2FCf1Ae5hYBgoq5tPyEcRh0XVmt6VKqDChvqXiXxtttE29V7q4CAvcn~UfLGW3tR-6f~2lfFEKQC0A-1likMI931ufKxxKF-xXtHxP0FSf03F55KFOXxeyedhRMc3IOu0s5SBOjoqnYQJ1U1XNLM--rEuZJmbgugm4TWQfxVRIajUPwX5LV8cBxSvkvoluUc64OcEiqRqX7oJarXwt5iIMXJoq33qaqrEJMnqCgCC1HiKuPbCsTqDx9~tSZpDWnUrZZUa3K~firGe91A__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+   
+   
+    .MainTextMainPage {
+    font-family: Segoe UI Black, Helvetica, sans-serif;
+    margin-top: 100px; /* Збільште або зменште це значення, щоб налаштувати відступ зверху */
+    font-size: 120px; /* Збільште розмір шрифту на ваш вибір */
+    -webkit-text-stroke: 3px hsl(78, 55%, 43%);
+    text-stroke: 3px rgb(78, 203, 41);
+    color: rgb(232, 249, 80);
+}
+
+.SecondaryTextMainPage {
+    font-family: Segoe UI Black, Helvetica, sans-serif;
+    margin-top: 40px; /* Збільште це значення, щоб налаштувати відстань між текстами */
+    font-size: 21px;
+    color: black;
+}
+      .MainCardMainPage{
+        margin-top: 80px;
+        width:  1500; <!--Це-->
+        height: 300;   <!--І це-->
+        background-image: url('1st-card-bg.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .MainCardMainPageText{
+        color: yellow;
+      }
+      .MainCardMainPageButton{
+        margin-top: 30px;
+        margin-left: 0px;
+        font-size: larger;
+        color: white;
+        
+      }
+  </style>
+  <body>
+    <header class="layout layout__header col-lg-6 col-md-8 col-sm-12 mx-auto">
+      <div class="header__top">
+        <a
+          class="logo not-clickable"
+          tabindex="1"
+          role="link"
+          aria-label="redirecting-to-home-page"
+          history="[object Object]"
+          location="[object Object]"
+          match="[object Object]"
+          href="/uk-ua"
+        >
+          <img class="logo__image" src="logo.png" alt="CyNet" />
+        </a>
+        <div class="menu" id="menu">
+          <a
+            class="menu__search menu__search_background_white"
+            tabindex="1"
+            history="[object Object]"
+            location="[object Object]"
+            match="[object Object]"
+            href="#"
+          >
+            <img
+              class="menu__search-image"
+              src="https://www.softserveinc.com/cdn/img/root/search-black.svg"
+              alt="Search"
+            />
+          </a>
+          <a
+            class="menu__contacts-button menu__contacts-button_black menu__contacts-button_black"
+            tabindex="1"
+            aria-label="Contact us"
+            href="your-contact-us-page-link"
+          ></a>
+          <a
+            class="menu__button menu__button_background_white"
+            tabindex="1"
+            aria-label="Open menu"
+            aria-pressed="false"
+            href="your-menu-page-link"
+          ></a>
+        </div>
+      </div>
+    </header>
+    <div class="container my-4">
+      <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8 col-sm-12 mx-auto">
+          <h1 class="MainTextMainPage fw-light ">CyNet</h1>
+          <p class="SecondaryTextMainPage lead">CyNet — це вебсайт, присвячений кібербезпеці,який містить важливу інформацію, надає актуальні новини та корисні поради </p>
+          <div class="card text-bg-dark MainCardMainPage">
+            <img src="1st-card-bg.png" class="card-img" alt="1stcard">
+            <div class="card-img-overlay">
+              <h2 class="card-title MainCardMainPageText">GETTING STARTED</h2>
+              <h5 class="card-text"> IN CYBERSECURITY </h5>
+              <h5 class="card-text" ><a class="btn MainCardMainPageButton" href="#"> Start Now    ——> </a> </h5>
+            </div>
+          </div>
+        </div>
+      </div>
+  </body>
+</html>
