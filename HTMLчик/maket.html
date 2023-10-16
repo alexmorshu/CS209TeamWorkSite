@@ -32,6 +32,7 @@
       width: 100%;
       z-index: 999;
     }
+    
 
     .header__top {
       display: flex;
@@ -70,7 +71,6 @@
       background-position: center;
       background-size: contain;
     }
-
     .menu__button {
       width: 40px;
       height: 40px;
@@ -84,26 +84,30 @@
       background-position: center;
       background-size: contain;
     }
-    .MainTextMainPage{
-      font-family: Arial, Helvetica, sans-serif;
-      margin-top: 130px;
-      color: yellow;
-      font-size: 90px;}
-    .SecondaryTextMainPage{  
-      font-family: Arial, Helvetica, sans-serif;
-      margin-top: 15px;
-      font-size: 28px;
-      color: black;}
+   
+   
+    .MainTextMainPage {
+    font-family: Segoe UI Black, Helvetica, sans-serif;
+    margin-top: 100px; /* Збільште або зменште це значення, щоб налаштувати відступ зверху */
+    font-size: 120px; /* Збільште розмір шрифту на ваш вибір */
+    -webkit-text-stroke: 3px hsl(78, 55%, 43%);
+    text-stroke: 3px rgb(78, 203, 41);
+    color: rgb(232, 249, 80);
+}
+
+.SecondaryTextMainPage {
+    font-family: Segoe UI Black, Helvetica, sans-serif;
+    margin-top: 40px; /* Збільште це значення, щоб налаштувати відстань між текстами */
+    font-size: 21px;
+    color: black;
+}
       .MainCardMainPage{
-        margin-top: 120px;
-        width:  1200; <!--Це-->
-        height: 250;   <!--І це-->
+        margin-top: 80px;
+        width:  1500; <!--Це-->
+        height: 300;   <!--І це-->
         background-image: url('1st-card-bg.png');
         background-repeat: no-repeat;
         background-size: cover;
-        background-position: center center;
-        background-attachment: fixed;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
       }
       .MainCardMainPageText{
         color: yellow;
@@ -166,13 +170,13 @@
       <div class="row justify-content-center">
         <div class="col-lg-6 col-md-8 col-sm-12 mx-auto">
           <h1 class="MainTextMainPage fw-light ">CyNet</h1>
-          <p class="SecondaryTextMainPage lead">CyNet - це вебсайт, присвячений кібербезпеці,який містить важливу інформацію, надає актуальні новини та корисні поради </p>
+          <p class="SecondaryTextMainPage lead">CyNet — це вебсайт, присвячений кібербезпеці,який містить важливу інформацію, надає актуальні новини та корисні поради </p>
           <div class="card text-bg-dark MainCardMainPage">
             <img src="1st-card-bg.png" class="card-img" alt="1stcard">
             <div class="card-img-overlay">
-              <h2 class="card-title MainCardMainPageText">GETTING STARTED</h5>
+              <h2 class="card-title MainCardMainPageText">GETTING STARTED</h2>
               <h5 class="card-text"> IN CYBERSECURITY </h5>
-              <h5 class="card-text" ><a class="btn MainCardMainPageButton" href="#"> Start Now </a> </h5>
+              <h5 class="card-text" ><a class="btn MainCardMainPageButton" href="#"> Start Now    ——> </a> </h5>
             </div>
           </div>
         </div>
