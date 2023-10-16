@@ -8,10 +8,12 @@ namespace CS209CommandWorkSite.Pages
     {
         private readonly ILogger<IndexModel> _logger;
         public FirstService Service;
+        public string Text;
         public IndexModel(ILogger<IndexModel> logger, FirstService service)
         {
             _logger = logger;
             Service = service;
+            Text = "Я чурка";
         }
 
         public void OnGet()
