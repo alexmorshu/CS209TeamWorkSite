@@ -16,15 +16,7 @@
     />
   </head>
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background-image: url("1st-page-main-bg.png");
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center center;
-      background-attachment: fixed;
-    }
+   
     .layout__header {
       position: fixed;
       top: 0;
@@ -84,26 +76,35 @@
       background-position: center;
       background-size: contain;
     }
+    .BackGround1 {
+      margin: 0;
+      padding: 0;
+      background-image: url("1st-page-main-bg.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+      background-attachment:fixed;
+    }
+
     .MainTextMainPage{
-      font-family: Arial, Helvetica, sans-serif;
-      margin-top: 130px;
-      color: yellow;
-      font-size: 90px;}
+    font-family: Segoe UI Black, Helvetica, sans-serif;
+    margin-top: 100px; 
+    font-size: 120px; 
+    -webkit-text-stroke: 3px hsl(78, 55%, 43%);
+    text-stroke: 3px rgb(78, 203, 41);
+    color: rgb(232, 249, 80);}
+
     .SecondaryTextMainPage{  
-      font-family: Arial, Helvetica, sans-serif;
-      margin-top: 15px;
-      font-size: 28px;
-      color: black;}
+    font-family: Segoe UI Black, Helvetica, sans-serif;
+    margin-top: 40px; 
+    font-size: 21px;
+    color: black;}
+
       .MainCardMainPage{
-        margin-top: 120px;
-        width:  1200; <!--Це-->
-        height: 250;   <!--І це-->
+        margin-top: 80px;
         background-image: url('1st-card-bg.png');
         background-repeat: no-repeat;
         background-size: cover;
-        background-position: center center;
-        background-attachment: fixed;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
       }
       .MainCardMainPageText{
         color: yellow;
@@ -115,8 +116,58 @@
         color: white;
         
       }
+    .SecondaryTextSecondPage{
+     font-family: Segoe UI Black, Helvetica, sans-serif;
+     margin-top: 60px; 
+     font-size: 21px;
+     color: black;
+    }
+    .SearchPicture{margin-top: -280px;
+     margin-left: -38px;}
+
+    .SecondPageSearchBar{
+      margin-top: -370px;
+    }
+    .SecondPageCard
+    {
+      margin-top: 60px; 
+      border-radius: 0;
+      background-repeat: no-repeat;
+      background-size: cover;    
+    }
+
+    .rectangle-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    border: none;
+    text-decoration: none;
+    text-align: center;
+    
+  }
+  .SecondPageCardButtonGape{
+    margin-top: 105px;
+    margin-left: 130px;
+    
+  }
+  .ChatPicture{
+    margin-top: -360px;
+    margin-left: -208px;
+    }
+  .ThirdPageCard
+  {
+    margin-top: -250px; 
+      border-radius: 0;
+      background-repeat: no-repeat;
+      background-size: cover;    
+  }
+  .ThirdPageCardButtonGape{
+    margin-top: 230px;
+    margin-left: 350px;
+  }
   </style>
-  <body>
+  <body class="BackGround1">
     <header class="layout layout__header col-lg-6 col-md-8 col-sm-12 mx-auto">
       <div class="header__top">
         <a
@@ -161,21 +212,69 @@
           ></a>
         </div>
       </div>
-    </header>
+   </header>
     <div class="container my-4">
       <div class="row justify-content-center">
         <div class="col-lg-6 col-md-8 col-sm-12 mx-auto">
           <h1 class="MainTextMainPage fw-light ">CyNet</h1>
-          <p class="SecondaryTextMainPage lead">CyNet - це вебсайт, присвячений кібербезпеці,який містить важливу інформацію, надає актуальні новини та корисні поради </p>
+          <p class="SecondaryTextMainPage lead">CyNet — це вебсайт, присвячений кібербезпеці,який містить важливу інформацію, надає актуальні новини та корисні поради </p>
           <div class="card text-bg-dark MainCardMainPage">
             <img src="1st-card-bg.png" class="card-img" alt="1stcard">
             <div class="card-img-overlay">
               <h2 class="card-title MainCardMainPageText">GETTING STARTED</h5>
               <h5 class="card-text"> IN CYBERSECURITY </h5>
-              <h5 class="card-text" ><a class="btn MainCardMainPageButton" href="#"> Start Now </a> </h5>
+              <h5 class="card-text" ><a class="btn MainCardMainPageButton" href="#"> Start Now    ——> </a> </h5>
+            </div>
+          </div>
+          <a>
+          <img class="SearchPicture" src="SearchPNG.png" alt="Search">
+          </a>
+          <nav class="navbar bg-body-tertiary SecondPageSearchBar">
+            <form class="container-fluid">
+              <div class="input-group">
+                <span class="input-group-text" id="basic-addon1"></span>
+                <input type="text" class="form-control" placeholder="Введіть ключові слова" aria-label="Username" aria-describedby="basic-addon1">
+              </div>
+            </form>
+          </nav>
+          <p class="SecondaryTextSecondPage lead">Активний пошук завжди приводить до виявлення! Введіть потрібні кключові слова та почніть пошук серед наших ресурсів </p>
+          
+          <div class="row">
+            <div class="col-sm-6 mb-3 mb-sm-0 mx-auto">
+              <div class="card SecondPageCard">
+                <img src="2nd-page-card.jpg" class="card-img" alt="1stcard">
+                <div class="card-img-overlay">
+                  <div class="card-body">
+                    <a href="#" class="rectangle-button SecondPageCardButtonGape ">Перейти</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 mb-3 mb-sm-0 mx-auto">
+              <div class="card SecondPageCard">
+                <img src="2nd-page-card2.jpeg" class="card-img" alt="1stcard">
+                <div class="card-img-overlay">
+                  <div class="card-body">
+                    <a href="#" class="rectangle-button SecondPageCardButtonGape ">Перейти</a>
+                  </div>
+                </div>
+            </div>
+          </div>
+          <a>
+            <img class="ChatPicture" src="ChatPNG.png" alt="ChatPNG">
+          </a>
+           <div class="card ThirdPageCard">
+              <img src="https://s3-alpha-sig.figma.com/img/7b18/05d9/257c2f814f5b1d908f2926e903ced58e?Expires=1698624000&Signature=CsJck7wWIk50huUHSKCGx3ify-jzxBVFkyQltPNhqzfKzX4UGypMo4TLFrdCKll4r79rntQ59uNa4D09r60oafmhhNQaHmUT6s33Kmz1clqONSeIPq4Uv8RZ3jRBeAHwrWOXeYmPRw-oq1Q6sKw12-KaC7wrGXlPoOxW7OJRF7bS372qoHVYOV5-DIY0huada23PEvZug-2kF5GQwjadqVyc9YC~xs7nDRUi~z4PAogNAsLiOk5A3UbJ4OTimWqHagSaSyQfWPZFOEaavMRMoIbzu~pOMRUIimompaTojYAft7D2yW4mNtX1whFFh75QFH3mD-P4nIQdvs9WqBSiTQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4" class="card-img" alt="3rdcard">
+                <div class="card-img-overlay">
+                  <div class="card-body">
+                     <a href="#" class="rectangle-button ThirdPageCardButtonGape ">Спільний Чат</a>
+                  </div>
+                </div>
             </div>
           </div>
         </div>
       </div>
-  </body>
+    </div>
+ </body>
 </html>
+
