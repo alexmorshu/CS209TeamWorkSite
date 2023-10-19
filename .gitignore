@@ -365,3 +365,4 @@ FodyWeavers.xsd
 
 #temporary IDE files
 .DS_Store
+launch.json
