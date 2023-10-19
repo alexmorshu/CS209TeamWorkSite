@@ -96,7 +96,16 @@
     text-decoration: none;
     text-align: center;
     }
-   .rectangle-button2 {
+    .rectangle-button2 {
+    display: inline-block;
+    padding: 20px 30px;
+    background-color: black;
+    color: white;
+    border: none;
+    text-decoration: none;
+    text-align: center;
+    }
+   .rectangle-button3 {
     display: inline-block;
     padding: 10px 20px;
     background-color: whitesmoke;
@@ -132,7 +141,7 @@
     color: black;}
 
    .MainCardMainPage{
-    margin-top: 80px;
+    margin-top: 230px;
     background-image: url('1st-card-bg.png');
     background-repeat: no-repeat;
     background-size: cover;
@@ -152,11 +161,11 @@
     font-size: 21px;
     color: black;
     }
-   .SearchPicture{margin-top: -280px;
-    margin-left: -38px;}
+   .SearchPicture{margin-top: 150px;
+    margin-left: 0px;}
 
    .SecondPageSearchBar{
-    margin-top: -370px;
+    margin-top: 50px;
     }
    .SecondPageCard
     {
@@ -170,11 +179,11 @@
     margin-left: 55%; 
     }
    .ChatPicture{
-    margin-top: -360px;
-    margin-left: -208px;
+    margin-top: 150px;
+    margin-left: 0px;
     }
    .ThirdPageCard {
-    margin-top: -250px;
+    margin-top: 100px;
     border-radius: 10px;
     background-repeat: no-repeat;
     background-size: cover;
@@ -190,9 +199,9 @@
     }
 
    .ThirdPageCardButtonGape {
-    margin-top: 0px;
-    margin-left: 37%;
-    z-index: 1;
+    margin-top: 30px;
+    margin-left: 38%;
+
     }
    .NeedHelpStyle{
     font-family: Segoe UI Black, Helvetica, sans-serif;
@@ -201,13 +210,13 @@
     }
    .TheFourthPageText{
      font-family: Segoe UI Black, Helvetica, sans-serif;
-     margin-top: 0px; 
+     margin-top: 35px; 
      font-size: 25px;
      color: gray;
     }
    .TheFourthPageCard {
      height: 200px;
-     margin-top: 80px;
+     margin-top: 140px;
      border-radius: 10px;
      background-repeat: no-repeat;
      background-size: cover;
@@ -221,16 +230,16 @@
     object-fit: cover;
     }
    .TheFourthPageCardButtonGape {
-    margin-top: 0px;
+    margin-top: 40px;
     margin-left: 39%; 
     z-index: 1;
     }
-   .WhatsNewPictur{
-    margin-top: -360px;
-    margin-left: -248px;
+   .WhatsNewPicture{
+    margin-top: 160px;
+    margin-left: -5px;
     }
    .FifthPageCard{
-     margin-top: -330px; 
+     margin-top: 75px; 
      border-radius: 10px;
      background-repeat: no-repeat;
      background-size: cover;
@@ -240,7 +249,7 @@
      margin-left: 55%;
      }
    .FifthPageCard2{
-    margin-top: -130px; 
+    margin-top: 50px; 
     border-radius: 10px;
     background-repeat: no-repeat;
     background-size: cover;
@@ -347,14 +356,16 @@
             <div class="card ThirdPageCard">
               <img src="3rd-page-card.jpg" class="card-img" alt="3rdcard">
             </div>
-            <a href="#" class="rectangle-button ThirdPageCardButtonGape">Спільний Чат</a>
-            <p class="NeedHelpStyle">ПОТРІБНА ОНЛАЙН КОНСУЛЬТАЦІЯ?</p>
+            <a href="#" class="rectangle-button2 ThirdPageCardButtonGape">Спільний Чат</a>
+            <a>
+              <img class="WhatsNewPicture" src="NeedHelp.png" alt="NeedHelp">
+           </a>  
             <p class="TheFourthPageText">Заповнюй форму та чекай на відгук</p>
             <div class="card TheFourthPageCard"> <img src="4th-page-card.jpg"></div>
-            <a href="#" class="rectangle-button TheFourthPageCardButtonGape">Заповнити</a>
+            <a href="#" class="rectangle-button2 TheFourthPageCardButtonGape">Заповнити</a>
           </div>
           <a>
-            <img class="WhatsNewPictur" src="WhatsNewPNG.png" alt="Whats new?">
+            <img class="WhatsNewPicture" src="WhatsNewPNG.png" alt="Whats new?">
          </a>
          <div class="row">
           <div class="col-sm-6 mb-3 mb-sm-0 mx-auto">
@@ -362,7 +373,7 @@
               <img src="5th-page-card1.jpg" class="card-img" alt="Fifth page picture 1">
               <div class="card-img-overlay">
                 <div class="card-body">
-                  <a href="#" class="rectangle-button2 FifthPageCardButtonGape">Читати</a>
+                  <a href="#" class="rectangle-button3 FifthPageCardButtonGape">Читати</a>
                 </div>
               </div>
             </div>
@@ -372,7 +383,7 @@
               <img src="5th-page-card4.jpg" class="card-img" alt="Fifth page picture 2">
               <div class="card-img-overlay">
                 <div class="card-body">
-                  <a href="#" class="rectangle-button2 FifthPageCardButtonGape">Читати</a>
+                  <a href="#" class="rectangle-button3 FifthPageCardButtonGape">Читати</a>
                 </div>
               </div>
             </div>
@@ -382,7 +393,7 @@
               <img src="5th-page-card2.jpg" class="card-img" alt="Fifth page picture 3">
               <div class="card-img-overlay">
                 <div class="card-body">
-                  <a href="#" class="rectangle-button2 FifthPageCardButtonGape">Читати</a>
+                  <a href="#" class="rectangle-button3 FifthPageCardButtonGape">Читати</a>
                 </div>
               </div>
             </div>
@@ -392,7 +403,7 @@
               <img src="5th-page-card3.jpg" class="card-img" alt="Fifth page picture 3">
               <div class="card-img-overlay">
                 <div class="card-body">
-                  <a href="#" class="rectangle-button2 FifthPageCardButtonGape">Читати</a>
+                  <a href="#" class="rectangle-button3 FifthPageCardButtonGape">Читати</a>
                 </div>
               </div>
             </div>
