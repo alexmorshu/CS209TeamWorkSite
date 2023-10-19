@@ -1,260 +1,283 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CyNet</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-      crossorigin="anonymous"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <style>
-   
-   .layout__header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 999;
-    }
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+          crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+          rel="stylesheet" />
+    <style>
 
-   .header__top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    background-color: #fff;
-    }
+        .layout__header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+        }
 
-   .logo {
-    border-right: 1px solid transparent;
-    padding-right: 10px;
-    }
+        .header__top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #fff;
+        }
 
-   .menu {
-    display: flex;
-    align-items: center;
-    }
+        .logo {
+            border-right: 1px solid transparent;
+            padding-right: 10px;
+        }
 
-   .menu__search {
-    width: 40px;
-    height: 40px;
-    margin-right: 10px;
-   }
+        .menu {
+            display: flex;
+            align-items: center;
+        }
 
-   .menu__contacts-button {
-     width: 40px;
-     height: 40px;
-     margin-right: 10px;
-     background-color: transparent;
-     border: none;
-     outline: none;
-     cursor: pointer;
-     background-image: url("https://s3-alpha-sig.figma.com/img/4ac4/0b8e/0f2b4597653a8430294d076a500e3326?Expires=1698019200&Signature=lyFMQQ~XKah1HuXlj~ZuCe6y57YKNMVr-ryqOtlWXZzpVdKBeWIT0rDa~YU~9pSletukLLoRf-8FR4xZV8gxDqQHGM9tEjpe0kLEOx6f5zMfzCevAIEu8KCiA3GuajczbronuUhP6vMmjaUlwj2MGNcHFsmIdl~~DMuogVnCDCMKBsj37mCsHDf-m6uCXgQq6Po-Yq5A-1t~B45hp07I0ieRh~Wo9d38BoRExl8yxzyukIBQuPZNxm7zQCgds9r08TGyEbnfs0T2-51upKzHfiI3pYn9Uu2wBzx77VryNPATIyaYzDrNFUKmNFUwsQMLkkPEJqEhe7ID9w2U1hhHgQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4");
-     background-repeat: no-repeat;
-     background-position: center;
-     background-size: contain;
-   }
+        .menu__search {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
 
-   .menu__button {
-    width: 40px;
-    height: 40px;
-    margin-right: 10px;
-    background-color: transparent;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    background-image: url("https://s3-alpha-sig.figma.com/img/d266/b368/de9be0aca649f1abfc6baf181d182c89?Expires=1698019200&Signature=f5VqMtTOp9kqEqDopQwypvegRlyCd2IXcbkpunGTA3OHHUrnk3hJduQbNJO6FCMBi5DUMS2FCf1Ae5hYBgoq5tPyEcRh0XVmt6VKqDChvqXiXxtttE29V7q4CAvcn~UfLGW3tR-6f~2lfFEKQC0A-1likMI931ufKxxKF-xXtHxP0FSf03F55KFOXxeyedhRMc3IOu0s5SBOjoqnYQJ1U1XNLM--rEuZJmbgugm4TWQfxVRIajUPwX5LV8cBxSvkvoluUc64OcEiqRqX7oJarXwt5iIMXJoq33qaqrEJMnqCgCC1HiKuPbCsTqDx9~tSZpDWnUrZZUa3K~firGe91A__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    }
-   .card {
-    margin: 0;
-    padding: 0;
-    position: relative;
-    background-image: url("card-image.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: top;
-    border: none;
-    outline: none;
-   }
-   .rectangle-button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: black;
-    color: white;
-    border: none;
-    text-decoration: none;
-    text-align: center;
-    }
-    .rectangle-button2 {
-    display: inline-block;
-    padding: 20px 30px;
-    background-color: black;
-    color: white;
-    border: none;
-    text-decoration: none;
-    text-align: center;
-    }
-   .rectangle-button3 {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: whitesmoke;
-    color: black;
-    border: none;
-    text-decoration: none;
-    text-align: center;
-    }
-   .BackGround1 {
-    margin: 0;
-    padding: 0;
-    background-image: url('1st-page-main-bg.jpg');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: fixed;
+        .menu__contacts-button {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+            background-color: transparent;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            background-image: url("https://s3-alpha-sig.figma.com/img/4ac4/0b8e/0f2b4597653a8430294d076a500e3326?Expires=1698019200&Signature=lyFMQQ~XKah1HuXlj~ZuCe6y57YKNMVr-ryqOtlWXZzpVdKBeWIT0rDa~YU~9pSletukLLoRf-8FR4xZV8gxDqQHGM9tEjpe0kLEOx6f5zMfzCevAIEu8KCiA3GuajczbronuUhP6vMmjaUlwj2MGNcHFsmIdl~~DMuogVnCDCMKBsj37mCsHDf-m6uCXgQq6Po-Yq5A-1t~B45hp07I0ieRh~Wo9d38BoRExl8yxzyukIBQuPZNxm7zQCgds9r08TGyEbnfs0T2-51upKzHfiI3pYn9Uu2wBzx77VryNPATIyaYzDrNFUKmNFUwsQMLkkPEJqEhe7ID9w2U1hhHgQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+        }
 
-    }
-    body {
-    height: 100%;
-    }
-   .MainTextMainPage{
-    font-family: Segoe UI Black, Helvetica, sans-serif;
-    margin-top: 100px; 
-    font-size: 120px; 
-    -webkit-text-stroke: 3px hsl(78, 55%, 43%);
-    text-stroke: 3px rgb(78, 203, 41); 
-    color: rgb(232, 249, 80);}
+        .menu__button {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+            background-color: transparent;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            background-image: url("https://s3-alpha-sig.figma.com/img/d266/b368/de9be0aca649f1abfc6baf181d182c89?Expires=1698019200&Signature=f5VqMtTOp9kqEqDopQwypvegRlyCd2IXcbkpunGTA3OHHUrnk3hJduQbNJO6FCMBi5DUMS2FCf1Ae5hYBgoq5tPyEcRh0XVmt6VKqDChvqXiXxtttE29V7q4CAvcn~UfLGW3tR-6f~2lfFEKQC0A-1likMI931ufKxxKF-xXtHxP0FSf03F55KFOXxeyedhRMc3IOu0s5SBOjoqnYQJ1U1XNLM--rEuZJmbgugm4TWQfxVRIajUPwX5LV8cBxSvkvoluUc64OcEiqRqX7oJarXwt5iIMXJoq33qaqrEJMnqCgCC1HiKuPbCsTqDx9~tSZpDWnUrZZUa3K~firGe91A__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+        }
 
-   .SecondaryTextMainPage{  
-    font-family: Segoe UI Black, Helvetica, sans-serif;
-    margin-top: 40px; 
-    font-size: 21px;
-    color: black;}
+        .card {
+            margin: 0;
+            padding: 0;
+            position: relative;
+            background-image: url("card-image.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: top;
+            border: none;
+            outline: none;
+        }
 
-   .MainCardMainPage{
-    margin-top: 230px;
-    background-image: url('1st-card-bg.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-      }
-   .MainCardMainPageText{
-    color: yellow;
-    }
-   .MainCardMainPageButton{
-    margin-top: 30px;
-    margin-left: 0px;
-    font-size: larger;
-    color: white;    
-    }
-   .SecondaryTextSecondPage{
-    font-family: Segoe UI Black, Helvetica, sans-serif;
-    margin-top: 60px; 
-    font-size: 21px;
-    color: black;
-    }
-   .SearchPicture{margin-top: 150px;
-    margin-left: 0px;}
+        .rectangle-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: black;
+            color: white;
+            border: none;
+            text-decoration: none;
+            text-align: center;
+        }
 
-   .SecondPageSearchBar{
-    margin-top: 50px;
-    }
-   .SecondPageCard
-    {
-    margin-top: 60px; 
-    border-radius: 0;
-    background-repeat: no-repeat;
-    background-size: cover;    
-    }
-   .SecondPageCardButtonGape{
-    margin-top: 45%;
-    margin-left: 55%; 
-    }
-   .ChatPicture{
-    margin-top: 150px;
-    margin-left: 0px;
-    }
-   .ThirdPageCard {
-    margin-top: 100px;
-    border-radius: 10px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-    overflow: hidden;
-    height: 250px;
-    margin-left: 0%;
-    }
-   .ThirdPageCard img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    }
+        .rectangle-button2 {
+            display: inline-block;
+            padding: 20px 30px;
+            background-color: black;
+            color: white;
+            border: none;
+            text-decoration: none;
+            text-align: center;
+        }
 
-   .ThirdPageCardButtonGape {
-    margin-top: 30px;
-    margin-left: 38%;
+        .rectangle-button3 {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: whitesmoke;
+            color: black;
+            border: none;
+            text-decoration: none;
+            text-align: center;
+        }
 
-    }
-   .NeedHelpStyle{
-    font-family: Segoe UI Black, Helvetica, sans-serif;
-    margin-top: 150px; 
-    font-size: 50px;
-    }
-   .TheFourthPageText{
-     font-family: Segoe UI Black, Helvetica, sans-serif;
-     margin-top: 35px; 
-     font-size: 25px;
-     color: gray;
-    }
-   .TheFourthPageCard {
-     height: 200px;
-     margin-top: 140px;
-     border-radius: 10px;
-     background-repeat: no-repeat;
-     background-size: cover;
-     position: relative;
-     overflow: hidden;
-     margin-left: 0%;
-    }
-   .TheFourthPageCard img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    }
-   .TheFourthPageCardButtonGape {
-    margin-top: 40px;
-    margin-left: 39%; 
-    z-index: 1;
-    }
-   .WhatsNewPicture{
-    margin-top: 160px;
-    margin-left: -5px;
-    }
-   .FifthPageCard{
-     margin-top: 75px; 
-     border-radius: 10px;
-     background-repeat: no-repeat;
-     background-size: cover;
-    }
-   .FifthPageCardButtonGape{
-     margin-top: 40%;
-     margin-left: 55%;
-     }
-   .FifthPageCard2{
-    margin-top: 50px; 
-    border-radius: 10px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    }
-  </style>
+        .BackGround1 {
+            margin: 0;
+            padding: 0;
+            background-image: url('1st-page-main-bg.jpg');
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: fixed;
+        }
+
+        body {
+            height: 100%;
+        }
+
+        .MainTextMainPage {
+            font-family: Segoe UI Black, Helvetica, sans-serif;
+            margin-top: 100px;
+            font-size: 120px;
+            -webkit-text-stroke: 3px hsl(78, 55%, 43%);
+            text-stroke: 3px rgb(78, 203, 41);
+            color: rgb(232, 249, 80);
+        }
+
+        .SecondaryTextMainPage {
+            font-family: Segoe UI Black, Helvetica, sans-serif;
+            margin-top: 40px;
+            font-size: 21px;
+            color: black;
+        }
+
+        .MainCardMainPage {
+            margin-top: 230px;
+            background-image: url('1st-card-bg.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .MainCardMainPageText {
+            color: yellow;
+        }
+
+        .MainCardMainPageButton {
+            margin-top: 30px;
+            margin-left: 0px;
+            font-size: larger;
+            color: white;
+        }
+
+        .SecondaryTextSecondPage {
+            font-family: Segoe UI Black, Helvetica, sans-serif;
+            margin-top: 60px;
+            font-size: 21px;
+            color: black;
+        }
+
+        .SearchPicture {
+            margin-top: 150px;
+            margin-left: 0px;
+        }
+
+        .SecondPageSearchBar {
+            margin-top: 50px;
+        }
+
+        .SecondPageCard {
+            margin-top: 60px;
+            border-radius: 0;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .SecondPageCardButtonGape {
+            margin-top: 45%;
+            margin-left: 55%;
+        }
+
+        .ChatPicture {
+            margin-top: 150px;
+            margin-left: 0px;
+        }
+
+        .ThirdPageCard {
+            margin-top: 100px;
+            border-radius: 10px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            overflow: hidden;
+            height: 250px;
+            margin-left: 0%;
+        }
+
+            .ThirdPageCard img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+        .ThirdPageCardButtonGape {
+            margin-top: 30px;
+            margin-left: 38%;
+        }
+
+        .NeedHelpStyle {
+            font-family: Segoe UI Black, Helvetica, sans-serif;
+            margin-top: 150px;
+            font-size: 50px;
+        }
+
+        .TheFourthPageText {
+            font-family: Segoe UI Black, Helvetica, sans-serif;
+            margin-top: 35px;
+            font-size: 25px;
+            color: gray;
+        }
+
+        .TheFourthPageCard {
+            height: 200px;
+            margin-top: 140px;
+            border-radius: 10px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            overflow: hidden;
+            margin-left: 0%;
+        }
+
+            .TheFourthPageCard img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+        .TheFourthPageCardButtonGape {
+            margin-top: 40px;
+            margin-left: 39%;
+            z-index: 1;
+        }
+
+        .WhatsNewPicture {
+            margin-top: 160px;
+            margin-left: -5px;
+        }
+
+        .FifthPageCard {
+            margin-top: 75px;
+            border-radius: 10px;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .FifthPageCardButtonGape {
+            margin-top: 40%;
+            margin-left: 55%;
+        }
+
+        .FifthPageCard2 {
+            margin-top: 50px;
+            border-radius: 10px;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+ 
   <body class="BackGround1">
     <header class="layout layout__header col-lg-6 col-md-8 col-sm-12 mx-auto">
       <div class="header__top">
