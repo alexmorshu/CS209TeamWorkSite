@@ -1,9 +1,14 @@
 using CS209CommandWorkSite.Service;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using CS209CommandWorkSite.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddDbContext<CS209CommandWorkSiteContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("CS209CommandWorkSiteContext") ?? throw new InvalidOperationException("Connection string 'CS209CommandWorkSiteContext' not found.")));
 builder.Services.AddTransient<FirstService>();
 
 var app = builder.Build();

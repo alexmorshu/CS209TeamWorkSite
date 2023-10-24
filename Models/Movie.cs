@@ -2,7 +2,7 @@
 
 namespace CS209CommandWorkSite.Models
 {
-    public class Class
+    public class Movie
     {
         public int Id { get; set; }
         public string? Title { get; set; }
