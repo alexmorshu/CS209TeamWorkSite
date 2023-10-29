@@ -24,18 +24,17 @@ namespace CS209CommandWorkSite.Controllers
         }
 
        [HttpGet("search/{name}")]
-        public ArticleModel? GetAll(string name)
+        public IActionResult GetAll(string name)
         {
 
             ArticleModel? model = _article.FindForName(name);
             if (model is not null)
             {
-                return model;
+                return Ok(model);
             }
             else
             {
-                this.HttpContext.Response.StatusCode = 404;
-                return null;
+                return NotFound();
             }
 
 
@@ -62,7 +61,7 @@ namespace CS209CommandWorkSite.Controllers
             {
                 if (!_article.Change(idV, formModel))
                 {
-                    return Created($"{this.HttpContext.Request.Path.Value}/{_article.Add(formModel)}", null);
+                    return Created($"api/Article/{_article.Add(formModel)}", null);
                 }
                 else
                 {
@@ -76,17 +75,16 @@ namespace CS209CommandWorkSite.Controllers
         }
 
         [HttpGet("{id:int}")]
-        public ArticleModel? GetOne(int id)
+        public IActionResult GetOne(int id)
         {
             ArticleModel? articleModel = _article.FindForId(id);
             if (articleModel is not null)
             {
-                return articleModel;
+                return Ok(articleModel);
             }
             else
             {
-                this.HttpContext.Response.StatusCode = 404;
-                return null;
+                return NotFound();
             }
 
         }
