@@ -11,6 +11,8 @@ namespace CS209CommandWorkSite.Interface
 
         public FormModel? FindForId(int id);
 
+        int Count();
+
         int Add(FormModel model);
 
         void Remove(int id);

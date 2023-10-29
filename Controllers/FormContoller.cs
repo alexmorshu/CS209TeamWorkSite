@@ -7,6 +7,9 @@ namespace CS209CommandWorkSite.Controllers
     [Route("api/[controller]")]
     public class FormController : Controller
     {
+
+        public record Counts(int Count);
+
         private IGetForm _getForm;
         private IAuthorizationHelper _authorizationHelper;
         public FormController(IGetForm getForm, IAuthorizationHelper authorizationHelper)
@@ -19,7 +22,8 @@ namespace CS209CommandWorkSite.Controllers
         [HttpGet]
         public IEnumerable<FormModel> all()
         {
-            if (_authorizationHelper.Check(this.HttpContext)) {
+            if (_authorizationHelper.Check(this.HttpContext))
+            {
                 return _getForm.GetFormNames;
             }
             this.HttpContext.Response.StatusCode = 401;
@@ -28,11 +32,11 @@ namespace CS209CommandWorkSite.Controllers
 
 
         [HttpGet("Count")]
-        public int? Count()
+        public Counts? Count()
         {
             if (_authorizationHelper.Check(this.HttpContext))
             {
-                return _getForm.GetFormNames.Count();
+                return new Counts(_getForm.Count());
             }
             this.HttpContext.Response.StatusCode = 401;
             return null;
@@ -45,7 +49,7 @@ namespace CS209CommandWorkSite.Controllers
         {
             if (_authorizationHelper.Check(this.HttpContext))
             {
-                return _getForm.GetSomeForm(begin,end);
+                return _getForm.GetSomeForm(begin, end);
             }
             this.HttpContext.Response.StatusCode = 401;
             return null;
@@ -58,13 +62,13 @@ namespace CS209CommandWorkSite.Controllers
             if (_authorizationHelper.Check(this.HttpContext))
             {
                 FormModel? form = _getForm.FindForId(id);
-                if(form is not null)
+                if (form is not null)
                     return form;
                 else
                 {
                     this.HttpContext.Response.StatusCode = 404;
                     return null;
-                } 
+                }
 
             }
             this.HttpContext.Response.StatusCode = 401;
@@ -72,9 +76,9 @@ namespace CS209CommandWorkSite.Controllers
         }
 
         [HttpPost]
-        public IActionResult Posts(FormModel formModel)
+        public IActionResult Posts([FromBody] FormModel formModel)
         {
-            return Created($"{this.HttpContext.Request.Path.Value}/{_getForm.Add(formModel)}",null);
+            return Created($"{this.HttpContext.Request.Path.Value}/{_getForm.Add(formModel)}", null);
         }
 
         [HttpDelete("{id:int}")]

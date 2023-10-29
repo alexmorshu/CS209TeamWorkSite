@@ -6,6 +6,8 @@ using CS209CommandWorkSite.Interface;
 using System.Data;
 using System.Net;
 
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -13,9 +15,10 @@ builder.Services.AddControllersWithViews();
 //builder.Services.AddRazorPages();
 builder.Services.AddDbContext<CS209CommandWorkSiteContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("CS209CommandWorkSiteContext") ?? throw new InvalidOperationException("Connection string 'CS209CommandWorkSiteContext' not found.")));
-builder.Services.AddSingleton<IGetForm ,FakeDataBase>();
+builder.Services.AddSingleton<IGetForm ,FakeDataBaseSpreadsheetForm>();
 builder.Services.AddSingleton<IAuthorization, AuthorizationService>();
 builder.Services.AddSingleton<IAuthorizationHelper, AuthorizationCookieService>();
+builder.Services.AddSingleton<IArticle, FakeDataBaseSpreadsheetArticle>();
 builder.Services.AddScoped<FirstService>();
 
 var app = builder.Build();

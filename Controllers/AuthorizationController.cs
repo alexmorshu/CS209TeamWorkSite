@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace CS209CommandWorkSite.Controllers
 {
     
-
+    public record PasswordModel(string Password);
     [Route("api/[controller]")]
     public class AuthorizationController : Controller
     {
@@ -16,8 +16,7 @@ namespace CS209CommandWorkSite.Controllers
 
 
         [HttpGet]
-
-        public ActionResult Get()
+        public IActionResult Get()
         {
             if(_authorization.Check(this.HttpContext))
             {
@@ -28,9 +27,9 @@ namespace CS209CommandWorkSite.Controllers
 
 
         [HttpPost]
-        public IActionResult Set(string password)
+        public IActionResult Set([FromBody] PasswordModel password)
         {
-            if(_authorization.Create(password, this.HttpContext))
+            if(_authorization.Create(password.Password, this.HttpContext))
             { 
                 return Ok();
             }
@@ -49,5 +48,8 @@ namespace CS209CommandWorkSite.Controllers
             return Ok();
 
         }
+
+
+
     }
 }
