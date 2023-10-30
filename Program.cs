@@ -7,7 +7,6 @@ using System.Data;
 using System.Net;
 
 
-
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddCors(options =>
  {
@@ -24,14 +23,30 @@ builder.Services.AddControllersWithViews();
 //builder.Services.AddRazorPages();
 builder.Services.AddDbContext<CS209CommandWorkSiteContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("CS209CommandWorkSiteContext") ?? throw new InvalidOperationException("Connection string 'CS209CommandWorkSiteContext' not found.")));
-builder.Services.AddSingleton<IGetForm ,FakeDataBaseSpreadsheetForm>();
+builder.Services.AddScoped<IGetForm ,FormGet>();
 builder.Services.AddSingleton<IAuthorization, AuthorizationService>();
 builder.Services.AddSingleton<IAuthorizationHelper, AuthorizationCookieService>();
-builder.Services.AddSingleton<IArticle, FakeDataBaseSpreadsheetArticle>();
-builder.Services.AddSingleton<INet, FakeDataBaseSpreadsheetNet>();
+builder.Services.AddScoped<IArticle, ArticleGet>();
+builder.Services.AddScoped<INet, NetGet>();
 builder.Services.AddScoped<FirstService>();
 
+
+
+
+
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll",
+        builder =>
+        {
+            builder.AllowAnyOrigin()
+                   .AllowAnyMethod()
+                   .AllowAnyHeader();
+        });
+});
 var app = builder.Build();
+
 app.Urls.Add("http://0.0.0.0:50000");
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -47,7 +62,7 @@ app.UseCors("AllowAll");
 app.UseStaticFiles();
 app.UseDefaultFiles();
 app.UseRouting();
-app.UseAuthorization();
+//app.UseAuthorization();
 
 
 //app.MapRazorPages();

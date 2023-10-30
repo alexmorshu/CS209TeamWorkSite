@@ -14,6 +14,8 @@ namespace CS209CommandWorkSite.Data
         {
         }
 
-        public DbSet<CS209CommandWorkSite.Models.Movie> Movie { get; set; } = default!;
+        public DbSet<FormModel> Form { get; set; } = default!;
+        public DbSet<ArticleModel> Article { get; set; } = default!;
+        public DbSet<NetModel> Net { get; set; } = default!;
     }
 }
