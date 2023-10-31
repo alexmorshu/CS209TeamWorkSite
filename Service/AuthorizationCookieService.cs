@@ -6,8 +6,10 @@ namespace CS209CommandWorkSite.Service
     public class AuthorizationCookieService : IAuthorizationHelper
     {
         private IAuthorization _authorization;
-        public AuthorizationCookieService(IAuthorization authorization) 
+        private int _time;
+        public AuthorizationCookieService(IAuthorization authorization, IConfiguration configuration) 
         {
+            _time = int.Parse(configuration.GetSection("authorization")["Time"]);
             _authorization = authorization;
         }
         public bool Check(HttpContext httpContext)
@@ -30,10 +32,11 @@ namespace CS209CommandWorkSite.Service
         {
             if (_authorization.CheckAuthorizationData(password))
             {
-                DateTime dateTime = DateTime.Now.AddDays(1);
+                DateTime dateTime = DateTime.Now.AddHours(_time);
                 var cookieResponse = httpContext.Response.Cookies;
                 var cookieRequest = httpContext.Request.Cookies;
                 CookieOptions cookieOptions = new();
+                cookieOptions.HttpOnly = true;
                 cookieOptions.Expires = dateTime;
                 if (cookieRequest["id"] is not null)
                 {

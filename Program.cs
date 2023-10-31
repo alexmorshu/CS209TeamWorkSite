@@ -18,6 +18,10 @@ builder.Services.AddCors(options =>
                     .AllowAnyHeader();
          });
  });
+
+
+
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 //builder.Services.AddRazorPages();
@@ -45,22 +49,34 @@ builder.Services.AddCors(options =>
                    .AllowAnyHeader();
         });
 });
-var app = builder.Build();
 
-app.Urls.Add("http://0.0.0.0:50000");
+
+
+var app = builder.Build();
+////app.UseMiddleware<CorsMiddleware>();
+app.UseCors("AllowAll");
+foreach (var url in app.Configuration.GetSection("UrlsListen").GetChildren())
+{
+    app.Urls.Add(url.Value);
+}
+
+
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
     app.UseStatusCodePages();
     app.UseDeveloperExceptionPage();
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-   // app.UseHsts();
+    
+    app.UseHsts();
 }
-app.UseCors("AllowAll");
+
+
+
 //app.UseHttpsRedirection();
-app.UseStaticFiles();
 app.UseDefaultFiles();
+app.UseStaticFiles();
+
 app.UseRouting();
 //app.UseAuthorization();
 
@@ -69,3 +85,21 @@ app.UseRouting();
 app.MapControllerRoute("default", "{controller}/{action}");
 
 app.Run();
+
+
+public class CorsMiddleware
+{
+    private readonly RequestDelegate _next;
+
+    public CorsMiddleware(RequestDelegate next)
+    {
+        _next = next;
+    }
+
+    public async Task InvokeAsync(HttpContext context)
+    {
+        context.Response.Headers.Add("Access-Control-Allow-Private-Network", "true");
+        Console.WriteLine(context.Response.Headers["Access-Control-Allow-Private-Network"]);
+        await _next(context);
+    }
+}

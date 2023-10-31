@@ -1,16 +1,18 @@
 ﻿using CS209CommandWorkSite.Data;
 using CS209CommandWorkSite.Interface;
 using CS209CommandWorkSite.Models;
+using System.Configuration;
 
 namespace CS209CommandWorkSite.Service
 {
     public class NetGet : INet
     {
         private CS209CommandWorkSiteContext _context;
-
-        public NetGet(CS209CommandWorkSiteContext context)
+        private IConfiguration _configuration;
+        public NetGet(CS209CommandWorkSiteContext context, IConfiguration configuration)
         {
             _context = context;
+            _configuration = configuration.GetSection("Net");
         }
 
         public int Add(NetModel netModel)
@@ -38,15 +40,15 @@ namespace CS209CommandWorkSite.Service
             NetModel? model = _context.Net.Find(id);
             if (model is not null)
             {
-                if (model.Name == "telegram" || model.Name == "instagram" || model.Name == "discord")
+                foreach(var item in _configuration.GetChildren())
                 {
-                    return false;
+                    if(model.Name == item.Value)
+                        return false;
                 }
-                else
-                {
-                    _context.Net.Remove(model);
-                    _context.SaveChanges();
-                }
+
+                _context.Net.Remove(model);
+                _context.SaveChanges();
+
             }
             return true;
         }

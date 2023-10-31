@@ -10,8 +10,13 @@ namespace CS209CommandWorkSite.Service
     {
         public const int TokensLen = 64; 
         private readonly RWLock _lock = new();
-        private readonly string _password = "123456";
+        private readonly string _password;
         private Dictionary<string, DateTime> _tokens = new();
+
+        public AuthorizationService(IConfiguration configuration)
+        {
+            _password = configuration.GetSection("authorization")["password"];
+        }
 
         private string _getRandomString()
         {
