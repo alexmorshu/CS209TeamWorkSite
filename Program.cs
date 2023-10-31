@@ -23,7 +23,7 @@ builder.Services.AddCors(options =>
 
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllers();
 //builder.Services.AddRazorPages();
 builder.Services.AddDbContext<CS209CommandWorkSiteContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("CS209CommandWorkSiteContext") ?? throw new InvalidOperationException("Connection string 'CS209CommandWorkSiteContext' not found.")));
@@ -32,7 +32,7 @@ builder.Services.AddSingleton<IAuthorization, AuthorizationService>();
 builder.Services.AddSingleton<IAuthorizationHelper, AuthorizationCookieService>();
 builder.Services.AddScoped<IArticle, ArticleGet>();
 builder.Services.AddScoped<INet, NetGet>();
-builder.Services.AddScoped<FirstService>();
+
 
 
 
@@ -53,7 +53,7 @@ builder.Services.AddCors(options =>
 
 
 var app = builder.Build();
-////app.UseMiddleware<CorsMiddleware>();
+
 app.UseCors("AllowAll");
 foreach (var url in app.Configuration.GetSection("UrlsListen").GetChildren())
 {
@@ -61,17 +61,11 @@ foreach (var url in app.Configuration.GetSection("UrlsListen").GetChildren())
 }
 
 
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
+
+if(app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Error");
-    app.UseStatusCodePages();
-    app.UseDeveloperExceptionPage();
-    
-    app.UseHsts();
+    Console.WriteLine("sdsfdsfasdf");
 }
-
-
 
 //app.UseHttpsRedirection();
 app.UseDefaultFiles();
@@ -81,25 +75,9 @@ app.UseRouting();
 //app.UseAuthorization();
 
 
-//app.MapRazorPages();
+
 app.MapControllerRoute("default", "{controller}/{action}");
 
 app.Run();
 
 
-public class CorsMiddleware
-{
-    private readonly RequestDelegate _next;
-
-    public CorsMiddleware(RequestDelegate next)
-    {
-        _next = next;
-    }
-
-    public async Task InvokeAsync(HttpContext context)
-    {
-        context.Response.Headers.Add("Access-Control-Allow-Private-Network", "true");
-        Console.WriteLine(context.Response.Headers["Access-Control-Allow-Private-Network"]);
-        await _next(context);
-    }
-}
