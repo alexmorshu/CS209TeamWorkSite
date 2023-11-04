@@ -8,7 +8,10 @@ namespace CS209CommandWorkSite.Controllers
     public class FormController : Controller
     {
 
-        public record Counts(int Count);
+        public class Counts
+        {
+            public int Count { get; set; }
+        }
 
         private IGetForm _getForm;
         private IAuthorizationHelper _authorizationHelper;
@@ -35,7 +38,7 @@ namespace CS209CommandWorkSite.Controllers
         {
             if (_authorizationHelper.Check(this.HttpContext))
             {
-                return Ok(new Counts(_getForm.Count()));
+                return Ok(new Counts() { Count = _getForm.Count()});
             }
             return Unauthorized();
         }

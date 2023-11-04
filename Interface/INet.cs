@@ -12,6 +12,6 @@ namespace CS209CommandWorkSite.Interface
 
         bool Delete(int id);
 
-
+        void ChangeSome(IEnumerable<NetModel> nets);
     }
 }

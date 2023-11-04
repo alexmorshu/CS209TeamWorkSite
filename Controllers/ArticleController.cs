@@ -1,7 +1,11 @@
 ﻿using CS209CommandWorkSite.Interface;
 using CS209CommandWorkSite.Models;
 using Microsoft.AspNetCore.Mvc;
-using static CS209CommandWorkSite.Controllers.FormController;
+//using static CS209CommandWorkSite.Controllers.FormController;
+public class Counts
+{
+    public int Count { get; set; }
+}
 
 namespace CS209CommandWorkSite.Controllers
 {
@@ -61,6 +65,7 @@ namespace CS209CommandWorkSite.Controllers
             {
                 if (!_article.Change(idV, formModel))
                 {
+                    formModel.Id = 0;
                     return Created($"api/Article/{_article.Add(formModel)}", null);
                 }
                 else
@@ -93,7 +98,7 @@ namespace CS209CommandWorkSite.Controllers
         [HttpGet("Count")]
         public Counts? Count()
         {
-            return new Counts(_article.Count());
+            return new Counts() { Count = _article.Count() };
         }
 
 

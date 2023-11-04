@@ -84,5 +84,19 @@ namespace CS209CommandWorkSite.Controllers
             }
         }
 
+        [HttpPut]
+        public IActionResult PutSome([FromBody] IEnumerable<NetModel> model)
+        {
+            if (_authorization.Check(this.HttpContext))
+            {
+                _net.ChangeSome(model);
+                return Ok();
+            }
+            else
+            {
+                return Unauthorized();
+            }
+        }
+
     }
 }

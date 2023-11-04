@@ -5,7 +5,9 @@ using CS209CommandWorkSite.Data;
 using CS209CommandWorkSite.Interface;
 using System.Data;
 using System.Net;
-
+using System.Runtime.CompilerServices;
+using Microsoft.CodeAnalysis.Elfie.Serialization;
+using Microsoft.AspNetCore.Builder;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddCors(options =>
@@ -60,24 +62,25 @@ foreach (var url in app.Configuration.GetSection("UrlsListen").GetChildren())
     app.Urls.Add(url.Value);
 }
 
+app.UseRouting();
 
-
-if(app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment())
 {
-    Console.WriteLine("sdsfdsfasdf");
+    Console.WriteLine("Режим розробки");
 }
 
 //app.UseHttpsRedirection();
-app.UseDefaultFiles();
+
+
 app.UseStaticFiles();
 
-app.UseRouting();
 //app.UseAuthorization();
 
+app.MapControllerRoute(
+        name: "default",
+        pattern: "{controller}/{action}");
+app.MapFallbackToFile("index.html");
 
-
-app.MapControllerRoute("default", "{controller}/{action}");
 
 app.Run();
-
 

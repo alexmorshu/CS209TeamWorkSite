@@ -62,5 +62,27 @@ namespace CS209CommandWorkSite.Service
         {
             return _context.Net.ToList();
         }
+
+
+        public void ChangeSome(IEnumerable<NetModel> nets)
+        {
+            
+            foreach (var net in nets)
+            {
+                NetModel? model = FindForId(net.Id);
+                if (model is not null)
+                {
+                    model.Link = net.Link;
+                    _context.Net.Update(model);
+                }
+                else
+                {
+                    net.Name = "other";
+                    net.Id = 0;
+                    _context.Net.Add(net);
+                }
+            }
+            _context.SaveChanges();
+        }
     }
 }

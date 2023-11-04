@@ -3,8 +3,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CS209CommandWorkSite.Controllers
 {
-    
-    public record PasswordModel(string Password);
+
+    public class PasswordModel
+    {
+        public string Password { get; set; }
+    }
     [Route("api/[controller]")]
     public class AuthorizationController : Controller
     {
