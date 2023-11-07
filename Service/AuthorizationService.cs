@@ -1,5 +1,8 @@
 ﻿using CS209CommandWorkSite.Interface;
 using CS209CommandWorkSite.Sychonization;
+using Microsoft.EntityFrameworkCore.Metadata.Conventions;
+using NuGet.Common;
+using System.Collections.Generic;
 using System.Data;
 using System.Security.Cryptography;
 using System.Text;
@@ -12,6 +15,9 @@ namespace CS209CommandWorkSite.Service
         private readonly RWLock _lock = new();
         private readonly string _password;
         private Dictionary<string, DateTime> _tokens = new();
+        private int _count = 0;
+        private const int _max = 200000000;
+
 
         public AuthorizationService(IConfiguration configuration)
         {
@@ -60,7 +66,34 @@ namespace CS209CommandWorkSite.Service
 
         public void CheckTrash()
         {
-            return;
+            int count = _count;
+            if(count > _max)
+            {
+                int now = Interlocked.CompareExchange(ref _count, 0, count);
+                if (now == 0)
+                {
+                    DateTime dateTime = DateTime.Now;
+                    Dictionary<string, DateTime> tokens;
+                    using (_lock.ReadLock())
+                    {
+                        tokens = new(_tokens.Count);
+                        foreach (var item in _tokens)
+                        {
+                            tokens.Add(item.Key,item.Value);
+                        }
+                    }
+
+                    foreach(var item in tokens)
+                    {
+                        if(item.Value < dateTime)
+                        {
+                            DeleteToken(item.Key);
+                        }
+                    }
+
+                }
+
+            }
         }
 
         public void DeleteToken(string token)
@@ -73,6 +106,10 @@ namespace CS209CommandWorkSite.Service
 
         public string GetToken(DateTime dateTime)
         {
+            Interlocked.Increment(ref _count);
+
+            CheckTrash();
+
             string token = _getRandomString();
             using (_lock.WriteLock())
             {

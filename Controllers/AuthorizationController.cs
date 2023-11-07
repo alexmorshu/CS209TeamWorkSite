@@ -1,13 +1,11 @@
 ﻿using CS209CommandWorkSite.Interface;
+using CS209CommandWorkSite.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CS209CommandWorkSite.Controllers
 {
 
-    public class PasswordModel
-    {
-        public string Password { get; set; }
-    }
+   
     [Route("api/[controller]")]
     public class AuthorizationController : Controller
     {

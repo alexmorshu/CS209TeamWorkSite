@@ -35,7 +35,7 @@ namespace CS209CommandWorkSite.Service
         public IEnumerable<FormModel> GetSomeForm(int begin, int end)
         {
             return _context.Form
-                .OrderBy(x => x.Id) // Сортування за полем Id (або іншим унікальним полем)
+                .OrderBy(x => x.Id)
                 .Skip(begin)
                 .Take(end - begin);
         }

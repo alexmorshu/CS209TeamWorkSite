@@ -24,9 +24,9 @@ builder.Services.AddCors(options =>
 
 
 
-// Add services to the container.
+
 builder.Services.AddControllers();
-//builder.Services.AddRazorPages();
+
 builder.Services.AddDbContext<CS209CommandWorkSiteContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("CS209CommandWorkSiteContext") ?? throw new InvalidOperationException("Connection string 'CS209CommandWorkSiteContext' not found.")));
 builder.Services.AddScoped<IGetForm ,FormGet>();
@@ -62,19 +62,17 @@ foreach (var url in app.Configuration.GetSection("UrlsListen").GetChildren())
     app.Urls.Add(url.Value);
 }
 
-app.UseRouting();
+
 
 if (app.Environment.IsDevelopment())
 {
     Console.WriteLine("Режим розробки");
 }
 
-//app.UseHttpsRedirection();
-
+app.UseHttpsRedirection();
+app.UseRouting();
 
 app.UseStaticFiles();
-
-//app.UseAuthorization();
 
 app.MapControllerRoute(
         name: "default",

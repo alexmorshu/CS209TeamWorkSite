@@ -14,7 +14,6 @@ namespace CS209CommandWorkSite.Service
         }
         public bool Check(HttpContext httpContext)
         {
-            return true;
             string? token = httpContext.Request.Cookies["id"];
             if (token == null)
             {

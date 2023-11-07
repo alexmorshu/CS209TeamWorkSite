@@ -1,11 +1,7 @@
 ﻿using CS209CommandWorkSite.Interface;
 using CS209CommandWorkSite.Models;
 using Microsoft.AspNetCore.Mvc;
-//using static CS209CommandWorkSite.Controllers.FormController;
-public class Counts
-{
-    public int Count { get; set; }
-}
+
 
 namespace CS209CommandWorkSite.Controllers
 {
